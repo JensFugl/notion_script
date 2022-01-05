@@ -8,7 +8,7 @@ This is a temporary script file.
 import requests, json
 import pandas as pd
 
-from cred import databaseId, token
+from config import databaseId, token
 
 headers = {
     "Authorization": "Bearer " + token,
@@ -22,15 +22,17 @@ def readDatabase(databaseId, headers):
     res = requests.request("POST", readUrl, headers=headers)
     data = res.json()
     print(res.status_code)
-    print(res.text)
+    df = pd.json_normalize(data['results'])
+    #print(res.text)
 
     with open('./db.json', 'w', encoding='utf8') as f:
         json.dump(data, f, ensure_ascii=False)
         
-    return data   
+    return df  
  
-data = readDatabase(databaseId, headers)
+df = readDatabase(databaseId, headers)
+'''
+df = pd.json_normalize(data)
 
-df = pd.json_normalize(data['results'])
-
-df2 = pd.json_normalize(df['properties.Name.title'])
+df2 = pd.json_normalize(data['results'][0]['properties'])
+'''
