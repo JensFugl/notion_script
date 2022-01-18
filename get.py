@@ -22,7 +22,7 @@ def readDatabase(databaseId, headers):
     res = requests.request("POST", readUrl, headers=headers)
     data = res.json()
     print(res.status_code)
-    df = pd.json_normalize(data['results'])
+    df = pd.json_normalize(data['results'], record_path = ['properties', ['Name', ['title']] ])
     #print(res.text)
 
     with open('./db.json', 'w', encoding='utf8') as f:
