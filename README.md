@@ -4,4 +4,5 @@ This project is about extracting and analysing data from my Notion "Life Dashboa
 
 In Notion i keep track of all my tasks both work related and not. Among other things i estimate how long a task will take and record how long it actiually took.
 
-Here is a link to a template of my dashboard: 
+Here is a link to a template of the dashboard: https://jensfugl.notion.site/Life-Dash-Template-d8a83ec65af240408aa54895b92e3c5d
+
